@@ -75,9 +75,13 @@ export async function fetchFacilityByCcn(ccn) {
 
   let response
   try {
-    response = await fetch(buildQueryUrl(trimmed))
+    response = await fetch(buildQueryUrl(trimmed), {
+      method: 'GET',
+      mode: 'cors',
+      headers: { 'Accept': 'application/json' },
+    })
   } catch (err) {
-    throw new CmsApiError('Could not reach the CMS Provider Data Catalog. Check your connection and try again.')
+    throw new CmsApiError(`Could not reach the CMS Provider Data Catalog. (${err.message})`)
   }
 
   if (!response.ok) {
