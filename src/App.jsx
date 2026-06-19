@@ -167,17 +167,20 @@ function FacilityPanel({ facility, manual, onManualChange }) {
     <div className="bg-white border border-rail/70 rounded-sm">
       <div className="px-7 pt-7 pb-5 border-b border-rail/50">
         <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-steel">CMS record · CCN {facility.ccn}</p>
+        <p className="mt-1.5 font-display text-xl font-semibold text-ink leading-snug">
+          {manual.facilityNameOverride.trim() || facility.legalName || 'Unnamed facility'}
+        </p>
         <input
           type="text"
           value={manual.facilityNameOverride}
           onChange={onManualChange('facilityNameOverride')}
-          placeholder={facility.legalName || 'Facility name'}
-          className="focus-ring mt-1.5 w-full font-display text-2xl font-semibold text-ink bg-transparent border-0 px-0 placeholder:text-ink/70"
+          placeholder="Type to override name on report…"
+          className="focus-ring mt-2 w-full font-body text-sm text-steel bg-transparent border-0 border-b border-dotted border-rail px-0 placeholder:text-steel/40"
         />
-        <p className="text-xs text-steel mt-1">
+        <p className="text-xs text-steel/60 mt-1">
           {manual.facilityNameOverride.trim()
-            ? 'Using your custom name on the exported report.'
-            : 'Legal name from CMS. Type above to override on the report.'}
+            ? 'Custom name will appear on the exported report.'
+            : 'CMS legal name shown. Type above to override on the report.'}
         </p>
       </div>
 
