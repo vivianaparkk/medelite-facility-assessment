@@ -4,7 +4,7 @@ import { generateSnapshotPdf } from './generatePdf.js'
 import StarRating from './components/StarRating.jsx'
 import FieldRow from './components/FieldRow.jsx'
 
-const EXAMPLE_CCN = '105447'
+const EXAMPLE_CCN = '686123'
 
 const initialManual = {
   facilityNameOverride: '',
@@ -91,14 +91,18 @@ function TopBar() {
     <header className="border-b border-rail/60 bg-chart/60">
       <div className="max-w-5xl mx-auto px-6 py-5 flex items-center justify-between">
         <div className="flex items-baseline gap-3">
-          <span className="font-display text-xl font-bold text-clinicalDark tracking-tight">Medelite</span>
+          <span className="font-display text-xl font-bold text-clinicalDark tracking-tight">
+            INFINITE <span className="font-normal text-steel text-base">— Managed by MEDELITE</span>
+          </span>
+        </div>
+        <div className="flex flex-col items-end">
           <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-steel">
             Facility Assessment Snapshot
           </span>
+          <span className="font-mono text-[10px] text-steel/60 hidden sm:inline">
+            CMS Provider Data Catalog · live
+          </span>
         </div>
-        <span className="font-mono text-[11px] text-steel hidden sm:inline">
-          CMS Provider Data Catalog · live
-        </span>
       </div>
     </header>
   )

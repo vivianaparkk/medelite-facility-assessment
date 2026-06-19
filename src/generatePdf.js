@@ -33,8 +33,8 @@ export function generateSnapshotPdf({ facility, manual }) {
 
   doc.setTextColor(255, 255, 255)
   doc.setFont('helvetica', 'bold')
-  doc.setFontSize(10)
-  doc.text('MEDELITE', marginX, 34)
+  doc.setFontSize(11)
+  doc.text('INFINITE \u2014 Managed by MEDELITE', marginX, 32)
   doc.setFont('helvetica', 'normal')
   doc.setFontSize(8)
   doc.setCharSpace(0.6)
