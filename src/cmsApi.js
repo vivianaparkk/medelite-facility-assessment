@@ -1,16 +1,6 @@
-// CMS Provider Data Catalog — Nursing Home "Provider Information" dataset.
-// Dataset ID is stable across monthly refreshes; distribution index is always 0.
-// No API key required. Docs: https://data.cms.gov/provider-data/docs
-const DATASET_ID = '4pq5-n9py'
-const BASE_URL = `https://data.cms.gov/provider-data/api/1/datastore/query/${DATASET_ID}/0`
-
+// Route through our own Vercel serverless proxy to avoid CORS issues with data.cms.gov
 function buildQueryUrl(ccn) {
-  const params = new URLSearchParams()
-  params.set('conditions[0][property]', 'cms_certification_number_ccn')
-  params.set('conditions[0][value]', ccn)
-  params.set('conditions[0][operator]', '=')
-  params.set('limit', '1')
-  return `${BASE_URL}?${params.toString()}`
+  return `/api/facility?ccn=${encodeURIComponent(ccn)}`
 }
 
 export class FacilityNotFoundError extends Error {
